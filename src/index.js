@@ -40,7 +40,7 @@ function trimContent(content) {
 
 function renderUml(content) {
   const params = {
-    url: getConfig(this, 'pluginsConfigPlantumlSvgServiceUrl', SERVICE_URL),
+    url: getConfig(this, 'pluginsConfig.plantuml-svg.serviceUrl', SERVICE_URL),
     body: content,
   };
 

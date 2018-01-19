@@ -60,7 +60,7 @@ describe('GitBook PlantUML Plugin', () => {
     ];
     mock.config = {
       get(property) {
-        if (property === 'pluginsConfigPlantumlSvgServiceUrl') {
+        if (property === 'pluginsConfig.plantuml-svg.serviceUrl') {
           return customService;
         }
         return customConfig;
