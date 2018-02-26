@@ -1,12 +1,12 @@
 {
-  "name": "gitbook-plugin-plantuml-svg",
-  "version": "1.0.1",
+  "name": "gitbook-plugin-plantuml-svg2",
+  "version": "1.0.0",
   "description": "Inject PlantUML into gitbook as SVG",
-  "homepage": "https://github.com/wewei/gitbook-plugin-plantuml-svg",
+  "homepage": "https://github.com/akuma/gitbook-plugin-plantuml-svg",
   "author": {
-    "name": "Wei Wei",
-    "email": "shazhouke@gmail.com",
-    "url": "https://github.com/wewei"
+    "name": "Jerry Huang",
+    "email": "ihuangwj@gmail.com",
+    "url": "https://github.com/akuma"
   },
   "files": ["dist"],
   "main": "dist/index.js",
@@ -76,7 +76,7 @@
     },
     "plugins": ["prettier"]
   },
-  "repository": "https://github.com/wewei/gitbook-plugin-plantuml-svg.git",
+  "repository": "https://github.com/akuma/gitbook-plugin-plantuml-svg.git",
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true

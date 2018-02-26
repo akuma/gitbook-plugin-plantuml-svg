@@ -14,6 +14,13 @@ function getContentPath(kwargs) {
   return path.relative(this.resolve('.'), absPath);
 }
 
+function getConfig(context, property, defaultValue) {
+  const config = _.get(context, 'config')
+    ? _.get(context, 'config')
+    : _.get(context, 'book.config');
+  return config ? config.get(property, defaultValue) : defaultValue;
+}
+
 function loadUmlContent({ kwargs = {}, body } = {}) {
   if (kwargs.src) {
     return this.readFileAsString(getContentPath.call(this, kwargs));
@@ -32,11 +39,19 @@ function trimContent(content) {
 }
 
 function renderUml(content) {
+  const params = {
+    url: getConfig(this, 'pluginsConfig.plantuml-svg.serviceUrl', SERVICE_URL),
+    body: content,
+  };
+
+  const config = getConfig(this, 'pluginsConfig.plantuml-svg.config');
+  if (config) {
+    params.qs = { config };
+    params.useQuerystring = true;
+  }
+
   return (this.rpMock || rp)
-    .post({
-      url: SERVICE_URL,
-      body: content,
-    })
+    .post(params)
     .then(Base64.encode)
     .then(OUTPUT_TEMPLATE);
 }
